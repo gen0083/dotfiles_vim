@@ -8,7 +8,7 @@
 DOTFILES_DIRECTORY="dotfiles_vim"
 DOTFILES_LIST="vimrc gvimrc ideavimrc"
 for DOTFILE in $DOTFILES_LIST; do
-  if [ -f ~/.$DOTFILE ]; then
+  if [ -e ~/.$DOTFILE ] || [ -L ~/.$DOTFILE ]; then
     if [ ! -L ~/.$DOTFILE ]; then
       # カスタマイズ済みのドットファイルを退避
       mv ~/.$DOTFILE ~/.$DOTFILE.old
@@ -21,7 +21,10 @@ for DOTFILE in $DOTFILES_LIST; do
 done
 
 # .directory
-if [ -d ~/.vim ]; then
+# -eで存在確認（シンボリックリンクの場合はリンク先を評価する）
+# -Lはシンボリックリンクの確認
+# 両方チェックはシンボリックリンクのリンク切れへの対応のため
+if [ -e ~/.vim ] || [ -L ~/.vim ]; then
   if [ ! -L ~/.vim ]; then
     # カスタマイズ済みの.vimを退避する
     mv ~/.vim ~/.vim.old
@@ -30,14 +33,18 @@ if [ -d ~/.vim ]; then
     rm ~/.vim
   fi
 fi
-if [ -d ~/.config/nvim ]; then
+
+mkdir -p ~/.config
+if [ -e ~/.config/nvim ] || [ -L ~/.config/nvim ]; then
   if [ ! -L ~/.config/nvim ]; then
     # すでにある設定を退避
     mv ~/.config/nvim ~/.config/nvim.old
   else
-    mv ~/.config/nvim ~/.config/nvim.old
+    # シンボリックリンクを削除
+    rm ~/.config/nvim
   fi
 fi
+
 ln -s ~/$DOTFILES_DIRECTORY/vimfiles ~/.vim
 ln -s ~/$DOTFILES_DIRECTORY/nvim ~/.config/nvim
 
