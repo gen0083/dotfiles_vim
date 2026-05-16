@@ -1,44 +1,44 @@
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" vim-plug自体の自動インストール
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" プラグインのセットアップ（dein.vim）
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-
+" プラグインのセットアップ（vim-plug）
+call plug#begin('~/.vim/plugged')
   " ファイルをツリー表示
-  call dein#add('scrooloose/nerdtree')
+  Plug 'scrooloose/nerdtree'
   " 複数行コメントを手軽に実行
-  call dein#add('tomtom/tcomment_vim')
+  Plug 'tomtom/tcomment_vim'
   " インデントに色をつけて見やすくする
-  call dein#add('nathanaelkane/vim-indent-guides')
+  Plug 'nathanaelkane/vim-indent-guides'
   " Gitを便利に使う
-  call dein#add('tpope/vim-fugitive')
+  Plug 'tpope/vim-fugitive'
   " 行末の半角スペースを可視化
-  call dein#add('bronson/vim-trailing-whitespace')
+  Plug 'bronson/vim-trailing-whitespace'
   " surround.vim
-  call dein#add('tpope/vim-surround')
+  Plug 'tpope/vim-surround'
   " emmet-vim
-  call dein#add('mattn/emmet-vim')
+  Plug 'mattn/emmet-vim'
   " Syntax-plugins
-  call dein#add('hail2u/vim-css3-syntax')
-  call dein#add('cakebaker/scss-syntax.vim')
-  call dein#add('jelera/vim-javascript-syntax')
-  call dein#add('chase/vim-ansible-yaml')
+  Plug 'hail2u/vim-css3-syntax'
+  Plug 'cakebaker/scss-syntax.vim'
+  Plug 'jelera/vim-javascript-syntax'
+  Plug 'chase/vim-ansible-yaml'
 
   " for ruby plugins
-  call dein#add('ngmy/vim-rubocop')
+  Plug 'ngmy/vim-rubocop'
   " for rails useful plugin
-  call dein#add('tpope/vim-rails')
+  Plug 'tpope/vim-rails'
   " add automatically close block e.g. def with end etc.
-  call dein#add('tpope/vim-endwise')
+  Plug 'tpope/vim-endwise'
   " apply color for files included ANSI color information
-  call dein#add('vim-scripts/AnsiEsc.vim')
+  Plug 'vim-scripts/AnsiEsc.vim'
 
-  call dein#end()
-  call dein#save_state()
-endif
+call plug#end()
 
-if dein#check_install()
-  call dein#install()
-endif
+" 未インストールのプラグインがある場合は自動インストール
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
