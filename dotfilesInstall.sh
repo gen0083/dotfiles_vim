@@ -31,10 +31,3 @@ if [ -e ~/.config/nvim ] && [ ! -L ~/.config/nvim ]; then
   mv ~/.config/nvim ~/.config/nvim.old
 fi
 ln -snf ~/$DOTFILES_DIRECTORY/nvim ~/.config/nvim
-
-# install Dein.vim https://github.com/Shougo/dein.vim
-mkdir -p ~/.cache/dein
-cd ~/.cache/dein
-
-curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh >installer.sh
-sh ./installer.sh ~/.cache/dein
