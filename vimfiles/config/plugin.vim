@@ -7,12 +7,8 @@ endif
 
 " プラグインのセットアップ（vim-plug）
 call plug#begin('~/.vim/plugged')
-  " ファイルをツリー表示
-  Plug 'scrooloose/nerdtree'
   " 複数行コメントを手軽に実行
   Plug 'tomtom/tcomment_vim'
-  " インデントに色をつけて見やすくする
-  Plug 'nathanaelkane/vim-indent-guides'
   " Gitを便利に使う
   Plug 'tpope/vim-fugitive'
   " 行末の半角スペースを可視化
