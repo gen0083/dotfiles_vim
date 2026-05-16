@@ -7,6 +7,10 @@ endif
 
 " プラグインのセットアップ（vim-plug）
 call plug#begin('~/.vim/plugged')
+  " easy-motion
+  " https://github.com/easymotion/vim-easymotion
+  Plug 'easymotion/vim-easymotion'
+
   " 複数行コメントを手軽に実行
   Plug 'tomtom/tcomment_vim'
   " Gitを便利に使う

@@ -9,6 +9,9 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 
+" SpaceはLeaderキーとして扱うのでデフォルトの動作（カーソル右移動）を無効化
+nnoremap <Space> <Nop>
+
 " move tabs
 nnoremap <Left> <C-w>h
 nnoremap <Right> <C-w>l
