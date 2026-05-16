@@ -1,8 +1,5 @@
-colorscheme desert
-syntax on
-set nobackup
-set noswapfile
-
+" ターミナルで実行するvimではなくMacVimなどのGUIのVim用の設定
+" 正直なくてもいいかも
 if has('gui_macvim')
     set transparency=2
     set lines=40 columns=150

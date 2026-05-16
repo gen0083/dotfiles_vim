@@ -1,20 +1,13 @@
-" enabled emulate vim-surround
-set surround
+source ~/.vim/config/set_common.vim
+source ~/.vim/config/keymap.vim
 
-" xで削除するときはレジスタに入れない
-nnoremap x "_x
-
-" カーソル移動
-nnoremap <S-h> ^
-nnoremap <S-l> $
-vnoremap <S-h> ^
-vnoremap <S-l> $
+" plugin for IdeaVim
+Plug 'tpope/vim-surround'
 
 " IntelJのキーマップバグへの対応（JISキーボードの"["が"]"として認識されてしまう）
 inoremap <C-]> <esc>
 noremap <C-]> <esc>
 
-" カーソルが行末（行頭）に達した場合次の行（前の行）に移動する
-" ideavimではまだ対応していない
-"set whichwrap=b,s,h,l,<,>,[,]
-"
+" https://github.com/JetBrains/ideavim/wiki/set-commands
+" リファクタモード時にvimモードをキープさせる(デフォルトだとVisualModeになってしまう)
+set idearefactormode=keep
