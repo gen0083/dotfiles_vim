@@ -1,3 +1,4 @@
+" viとの互換モードをオフにする設定（いにしえのおまじない）
 if &compatible
   set nocompatible
 endif
