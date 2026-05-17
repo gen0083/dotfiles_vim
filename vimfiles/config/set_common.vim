@@ -11,3 +11,6 @@ set hlsearch
 set incsearch
 " カーソルを行頭・行末で止まらないようにする
 set whichwrap=b,s,h,l,<,>,[,]
+
+" クリップボードをOSと共通利用する
+set clipboard=unnamedplus
