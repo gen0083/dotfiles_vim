@@ -4,17 +4,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 " grep検索の実行後にQuickFix Listを表示する
 autocmd QuickFixCmdPost *grep* cwindow
 
-" IMEの自動オフ(needs macism)
-" https://github.com/laishulu/macism
-" macの場合にのみ処理を行う
-if has('mac')
-  augroup ImeAutoOff
-    autocmd!
-    " 指定したイベント時に英数モードにする(ただしInsertMode時は動かさない)
-    autocmd VimEnter,InsertLeave,CmdlineLeave,FocusGained * if mode() !=# 'i' | call system('macism com.apple.keylayout.US') | endif
-  augroup END
-endif
-
 " http://inari.hatenablog.com/entry/2014/05/05/231307
 """"""""""""""""""""""""""""""
 " 全角スペースの表示

@@ -1,12 +1,14 @@
-source ~/.vim/config/set_common.vim
-source ~/.vim/config/keymap.vim
-
 let mapleader = "\<Space>"
 
 " plugin for IdeaVim
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 source ~/.vim/config/plugin_easymotion.vim
+
+" 共通設定の読み込み
+source ~/.vim/config/set_common.vim
+source ~/.vim/config/keymap.vim
+source ~/.vim/config/autocmd_common.vim
 
 " IntelJのキーマップバグへの対応（JISキーボードの"["が"]"として認識されてしまう）
 inoremap <C-]> <esc>
