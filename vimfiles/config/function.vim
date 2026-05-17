@@ -10,8 +10,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 if has('mac')
   augroup ImeAutoOff
     autocmd!
-    " 指定したイベント時に英数モードにする
-    autocmd VimEnter,InsertLeave,CmdlineLeave,FocusGained * silent !macism com.apple.keylayout.US
+    " 指定したイベント時に英数モードにする(ただしInsertMode時は動かさない)
+    autocmd VimEnter,InsertLeave,CmdlineLeave,FocusGained * if mode() !=# 'i' | call system('macism com.apple.keylayout.US') | endif
   augroup END
 endif
 
