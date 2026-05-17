@@ -21,18 +21,22 @@ keymap("n", "Q", "<Nop>", opts)
 -- keymap("n", "<Space>", "<Nop>", opts)
 
 -- move tabs
-keymap("n", "<Left>", "<C-w>h", opts)
-keymap("n", "<Right>", "<C-w>l", opts)
-keymap("n", "<Up>", "<C-w>k", opts)
-keymap("n", "<Down>", "<C-w>j", opts)
-keymap("n", "<S-q><S-q>", "<C-w>q", opts)
+if not vim.g.vscode then
+  keymap("n", "<Left>", "<C-w>h", opts)
+  keymap("n", "<Right>", "<C-w>l", opts)
+  keymap("n", "<Up>", "<C-w>k", opts)
+  keymap("n", "<Down>", "<C-w>j", opts)
+  keymap("n", "<S-q><S-q>", "<C-w>q", opts)
+end
 
 -- カーソル移動
 keymap({ "n", "v", "o" }, "<S-h>", "^", opts)
 keymap({ "n", "v", "o" }, "<S-l>", "$", opts)
 
 -- ウィンドウ移動
-keymap({ "n", "v", "o" }, "<C-j>", "<C-w>j", opts)
-keymap({ "n", "v", "o" }, "<C-h>", "<C-w>h", opts)
-keymap({ "n", "v", "o" }, "<C-k>", "<C-w>k", opts)
-keymap({ "n", "v", "o" }, "<C-l>", "<C-w>l", opts)
+if not vim.g.vscode then
+  keymap({ "n", "v", "o" }, "<C-j>", "<C-w>j", opts)
+  keymap({ "n", "v", "o" }, "<C-h>", "<C-w>h", opts)
+  keymap({ "n", "v", "o" }, "<C-k>", "<C-w>k", opts)
+  keymap({ "n", "v", "o" }, "<C-l>", "<C-w>l", opts)
+end

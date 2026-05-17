@@ -13,18 +13,22 @@ nnoremap Q <Nop>
 nnoremap <Space> <Nop>
 
 " move tabs
-nnoremap <Left> <C-w>h
-nnoremap <Right> <C-w>l
-nnoremap <Up> <C-w>k
-nnoremap <Down> <C-w>j
-nnoremap <S-q><S-q> <C-w>q
+if !exists('g:vscode')
+  nnoremap <Left> <C-w>h
+  nnoremap <Right> <C-w>l
+  nnoremap <Up> <C-w>k
+  nnoremap <Down> <C-w>j
+  nnoremap <S-q><S-q> <C-w>q
+endif
 
 " カーソル移動
 noremap <S-h> ^
 noremap <S-l> $
 
 " ウィンドウ移動
-noremap <C-j> <C-w>j
-noremap <C-h> <C-w>h
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+if !exists('g:vscode')
+  noremap <C-j> <C-w>j
+  noremap <C-h> <C-w>h
+  noremap <C-k> <C-w>k
+  noremap <C-l> <C-w>l
+endif
