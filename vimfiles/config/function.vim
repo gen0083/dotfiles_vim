@@ -6,11 +6,14 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 " IMEの自動オフ(needs macism)
 " https://github.com/laishulu/macism
-augroup ImeAutoOff
-  autocmd!
-  " インサートモードを抜ける時に英数モードにする
-  autocmd InsertLeave * silent !macism com.apple.keylayout.US
-augroup END
+" macの場合にのみ処理を行う
+if has('mac')
+  augroup ImeAutoOff
+    autocmd!
+    " 指定したイベント時に英数モードにする
+    autocmd VimEnter,InsertLeave,CmdlineLeave,FocusGained * silent !macism com.apple.keylayout.US
+  augroup END
+endif
 
 " http://inari.hatenablog.com/entry/2014/05/05/231307
 """"""""""""""""""""""""""""""
