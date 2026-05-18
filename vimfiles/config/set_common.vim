@@ -14,3 +14,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 " クリップボードをOSと共通利用する
 set clipboard=unnamedplus
+
+" 検索時にファイルの先頭/末尾でループしない
+set nowrapscan
