@@ -8,7 +8,6 @@ source ~/.vim/config/plugin_easymotion.vim
 " 共通設定の読み込み
 source ~/.vim/config/set_common.vim
 source ~/.vim/config/keymap.vim
-source ~/.vim/config/autocmd_common.vim
 
 " IntelJのキーマップバグへの対応（JISキーボードの"["が"]"として認識されてしまう）
 inoremap <C-]> <esc>
@@ -17,3 +16,10 @@ noremap <C-]> <esc>
 " https://github.com/JetBrains/ideavim/wiki/set-commands
 " リファクタモード時にvimモードをキープさせる(デフォルトだとVisualModeになってしまう)
 set idearefactormode=keep
+
+" IdeaVimでもIMEオフ(needs IdeaVimExtension)
+augroup ImeAutoOff
+  autocmd!
+  " 指定したイベント時に英数モードにする(ただしInsertMode時は動かさない)
+  autocmd InsertLeave ** silent !macism com.apple.keylayout.ABC
+augroup END

@@ -12,8 +12,7 @@ source ~/.vim/config/plugin_easymotion.vim
 source ~/.vim/config/set_common.vim
 source ~/.vim/config/set_basic.vim
 source ~/.vim/config/keymap.vim
-source ~/.vim/config/autocmd_basic.vim
-source ~/.vim/config/autocmd_common.vim
+source ~/.vim/config/autocmd.vim
 
 filetype plugin indent on
 syntax enable

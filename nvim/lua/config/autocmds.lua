@@ -16,7 +16,7 @@ if vim.fn.has("mac") == 1 then
     callback = function()
       -- インサートモード時には実行しない
       if vim.fn.mode() ~= "i" then
-        vim.fn.system("macism com.apple.keylayout.US")
+        vim.fn.system("macism com.apple.keylayout.ABC")
       end
     end,
   })
