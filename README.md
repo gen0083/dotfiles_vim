@@ -3,49 +3,24 @@
 ホームディレクトリでdotfilesリポジトリをクローンする
 
 ```
-git clone https://github.com/gen0083/dotfiles
+git clone https://github.com/gen0083/dotfiles_vim
 ```
 
-その後、`~/dotfiles/dotfilesInstall.sh`を実行する。
+その後、`~/dotfiles_vim/dotfilesInstall.sh`を実行する。
 
 # dotfilesInstall.sh
 
-dotfilesディレクトリ下にあるドットファイルへのシンボリックリンクを作成する。
+dotfiles_vimディレクトリ下にあるドットファイルへのシンボリックリンクを作成する。
 
-既にホームディレクトリかでドットファイルをカスタマイズしている場合、.oldにリネームして退避する。・・・はず。
+既にホームディレクトリかでドットファイルをカスタマイズしている場合、.oldにリネームして退避する。
 
-カスタマイズしていた場合、シェルスクリプト実行後に退避したファイルから設定をサルベージすること。
+シンボリックリンクを貼るので実際の.vimrcなどの中身は_vimrcになる。
 
-Vimのプラグインマネージャーに[dein.vim](https://github.com/Shougo/dein.vim)を利用しており、この初期設定も行うようになっている。
+vim, ideavim(IntelliJ), neovimの設定をコピーして使う。
 
-ただしdeinはvimを開いて`:call dein#install()`を呼び出さないとプラグインのインストールが完了しないので忘れないように。
-（一応.vimrcに初回読み込み時にインストールするように設定してはいるけれど）
+# vim plugin
 
-## asdf
-
-https://asdf-vm.com/manage/versions.html
-
-### java
-
-https://github.com/whichjdk/whichjdk.com
-
-temurinインストールしとけばいいっぽい（Adoptの後継）
-
-java_homeの設定: https://github.com/halcyon/asdf-java
-
-## インストールしているvim plugin
-
-### dein.vim
-
-<https://github.com/Shougo/dein.vim>
-
-Vimプラグインの管理ツール。
-
-### NERDtree
-
-:NERDtreeでファイルツリーを表示する。
-
-### fugitive
+## fugitive
 
 :Gwrite　→　git add
 
@@ -55,7 +30,7 @@ Vimプラグインの管理ツール。
 :Gcommit　→　git commit
 コミットメッセージを記入して、:wq等でファイルの書き込み＆閉じるを行うことでgit commitが実行される。なお、`#`で始まる行は全て無視される（コミットメッセージに含まれない）。
 
-### surround.vim
+## surround.vim
 
 ビジュアルモードで選択して`S<p>`とかすると、選択範囲を`<p>`タグで囲ってくれる。
 
@@ -65,76 +40,35 @@ Vimプラグインの管理ツール。
 
 `a'hoge'`のhoge内にカーソルがある状態で`ds'`で`ahoge`になる(`''`の囲いを削除する)。同様に`cs'"`で`a"hoge"`と囲い文字を変更する。
 
-### emmet-vim
+## emmet-vim
 
 VimでEmmetを使えるようにするプラグイン。`<C-Y><C-,>`でタグに展開する。
 
 [Emmet-vim](https://github.com/mattn/emmet-vim)
 
-### tcomment_vim
+## tcomment_vim
 
 ビジュアルモードで複数行選択した後`gc`とコマンドを打つことでコメントがトグルされる。（コメントアウト←→通常の切り替え）
 また、ノーマルモードで`gcc`と入力することで、カーソル行がコメントアウトされる。
 
+## easy-motion
 
-### vim-indent-guides
+neovimではflash.nvimが使われるので、ショートカットをそちらに合わせてsにしている。
 
-インデントに色をつけて見やすくする。
+# それぞれの設定について
 
-### vim-trailing-whitespace
+- _vimrc: vim(MacVim)用　一番ノーマル
+- _ideavimrc: IntelliJのIdeaVim用
+- _gvimrc: GUIのvim用（使わないと思うが残してある）
+- nvim/*: neovim(LazyVim)用
 
-行末の半角スペースを可視化する。
+## nvim
 
-### Syntax-plugins
+neovimの設定群が格納されているディレクトリ
+実際に設定を記述するのはnvim/lua/config/以下のファイルになる
+~/.nvim/にマッピングされる
 
-vim-css3-syntax
-scss-syntax.vim
-vim-javascript-syntax
+## vimfiles
 
-### RuboCop
-
-rubyの静的コード解析を行うプラグイン。
-`:RuboCop`で実行。
-別途`gem install rubocop`でRubocopをインストールしておかないと動かない。
-
-# (参考)デフォルトアプリケーションの変更
-
-Finderから変更ができるように`.`を`_`に変更しているが、ファイルの更新をMacVimで行うたびに既定のプログラムが書き換わってしまう。（規定のプログラムがテキストエディットになってしまう）
-
-## 対策：RCDefaultAppを利用する
-
-[RCDefaultApp](http://www.rubicode.com/Software/Bundles.html#RCDefaultApp)を利用して規定のプログラムを書き換える。（Finder→情報を見るからではファイル単位の書き換えになり、しかも更新のたびに元に戻ってしまうため）
-
-RCDefaultApp→UTI→public.txtを変更する。（恐らくこれだけ変えればいけるはず）
-
-## Vim関係以外で別途インストールが必要なもの
-
-.bash_profileを入れても有効にならないので、別途インストールが必要。マシン切替時などにはこれらは別途インストールすること。
-
-## homebrewでインストールするもの
-
-- peco
-
-### nodenv
-
-<https://github.com/nodenv/nodenv>
-
-nodeのバージョン管理
-
-### enhancd
-
-<https://github.com/b4b4r07/enhancd>
-
-cdコマンド拡張
-
-# githooks
-
-例: .git/hooks/pre-commitにmainブランチでのコミットを禁止するgithooksを入れる
-
-```sh
-#!/bin/sh
-
-. ~/dotfiles/githooks/pre-commit-disallow-commit-main
-```
-
-注意：実行権限を与えるのを忘れないこと
+インストール後は~/.vim/にシンボリックリンクされる
+一部の設定については_ideavimrcと共通利用するためファイルを分割している（set_common.vim, keymap.vimが該当）
