@@ -4,3 +4,4 @@
 
 -- クリップボードをOSのクリップボードと共通利用する
 vim.opt.clipboard = "unnamedplus"
+vim.opt.wrapscan = false
