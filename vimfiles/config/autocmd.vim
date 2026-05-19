@@ -11,7 +11,7 @@ if has('mac')
   augroup ImeAutoOff
     autocmd!
     " 指定したイベント時に英数モードにする(ただしInsertMode時は動かさない)
-    autocmd VimEnter,InsertLeave,CmdlineLeave,FocusGained * if mode() !=# 'i' | call system('macism com.apple.keylayout.ABC') | endif
+    autocmd InsertLeave,CmdlineLeave,FocusGained * if mode() !=# 'i' | call system('macism com.apple.keylayout.ABC') | endif
   augroup END
 endif
 

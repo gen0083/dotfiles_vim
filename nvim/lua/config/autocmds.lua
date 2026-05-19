@@ -10,7 +10,7 @@
 -- IMEの自動オフ (Vimの function.vim と同等の処理)
 -- macの場合にのみ処理を行う
 if vim.fn.has("mac") == 1 then
-  vim.api.nvim_create_autocmd({ "VimEnter", "InsertLeave", "CmdlineLeave", "FocusGained", "WinEnter" }, {
+  vim.api.nvim_create_autocmd({ "InsertLeave", "CmdlineLeave", "FocusGained" }, {
     group = vim.api.nvim_create_augroup("ImeAutoOff", { clear = true }),
     pattern = "*",
     callback = function()
