@@ -6,10 +6,8 @@ local keymap = vim.keymap.set
 local opts = { silent = true }
 
 -- X, Cキーで文字削除する際にレジスタに入れない
-keymap("n", "x", '"_x', opts)
-keymap("v", "x", '"_x', opts)
-keymap("n", "c", '"_c', opts)
-keymap("v", "c", '"_c', opts)
+keymap({"n", "v"}, "x", '"_x', opts)
+keymap({"n", "v"}, "c", '"_c', opts)
 
 -- 使わないキーマップを無効化
 keymap("n", "ZZ", "<Nop>", opts)
