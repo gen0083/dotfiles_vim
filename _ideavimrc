@@ -2,6 +2,7 @@ let mapleader = "\<Space>"
 
 " plugin for IdeaVim
 Plug 'tpope/vim-surround'
+source ~/.vim/config/plugin_surround.vim
 Plug 'easymotion/vim-easymotion'
 source ~/.vim/config/plugin_easymotion.vim
 

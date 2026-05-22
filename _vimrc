@@ -8,6 +8,7 @@ let mapleader = "\<Space>"
 " プラグイン、プラグイン設定の読み込み
 source ~/.vim/config/plugin.vim
 source ~/.vim/config/plugin_easymotion.vim
+source ~/.vim/config/plugin_surround.vim
 
 source ~/.vim/config/set_common.vim
 source ~/.vim/config/set_basic.vim
