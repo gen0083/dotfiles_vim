@@ -12,7 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'easymotion/vim-easymotion'
 
   " 複数行コメントを手軽に実行
-  Plug 'tomtom/tcomment_vim'
+  Plug 'tpope/vim-commentary'
   " Gitを便利に使う
   Plug 'tpope/vim-fugitive'
   " 行末の半角スペースを可視化

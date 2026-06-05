@@ -5,6 +5,7 @@ Plug 'tpope/vim-surround'
 source ~/.vim/config/plugin_surround.vim
 Plug 'easymotion/vim-easymotion'
 source ~/.vim/config/plugin_easymotion.vim
+Plug 'tpope/vim-commentary'
 
 " 共通設定の読み込み
 source ~/.vim/config/set_common.vim
