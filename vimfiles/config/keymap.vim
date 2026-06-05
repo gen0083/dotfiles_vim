@@ -24,11 +24,3 @@ endif
 " カーソル移動
 noremap <S-h> ^
 noremap <S-l> $
-
-" ウィンドウ移動
-if !exists('g:vscode')
-  noremap <C-j> <C-w>j
-  noremap <C-h> <C-w>h
-  noremap <C-k> <C-w>k
-  noremap <C-l> <C-w>l
-endif
