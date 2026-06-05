@@ -20,6 +20,9 @@ vim, ideavim(IntelliJ), neovimの設定をコピーして使う。
 
 # vim plugin
 
+neovimとvimで異なるPluginを使っている場合がある
+ideavimが使えるプラグインが限られているので、できればideavimでも使えるプラグインを使用したいという思惑がある
+
 ## fugitive
 
 :Gwrite　→　git add
@@ -30,15 +33,16 @@ vim, ideavim(IntelliJ), neovimの設定をコピーして使う。
 :Gcommit　→　git commit
 コミットメッセージを記入して、:wq等でファイルの書き込み＆閉じるを行うことでgit commitが実行される。なお、`#`で始まる行は全て無視される（コミットメッセージに含まれない）。
 
-## surround.vim
+## 囲み系
 
-ビジュアルモードで選択して`S<p>`とかすると、選択範囲を`<p>`タグで囲ってくれる。
+neovimでは[mini.surround](https://github.com/nvim-mini/mini.surround)、vimでは[surround.vim](https://github.com/tpope/vim-surround)を使用
+keymapはmini.surroundに合わせる方向で調整している
 
-[vim の text-object をより便利に使えるプラグイン - surround.vim](http://secondlife.hatenablog.jp/entry/20061225/1167032528)
+`gsa` - 囲み文字を追加
+`gsr` - 囲み文字の置換
+`gsd` - 囲み文字の削除
 
-選択範囲を`()`で囲う場合→ビジュアルモードで選択したあと`S(`で囲う。
-
-`a'hoge'`のhoge内にカーソルがある状態で`ds'`で`ahoge`になる(`''`の囲いを削除する)。同様に`cs'"`で`a"hoge"`と囲い文字を変更する。
+ちなみに`gsa[`と`gsa]`で選択範囲をどちらも`[]`で囲うが、前者は`[ text ]`とスペースが入るのに対し、後者は`[text]`とスペースなしになる違いがある。
 
 ## emmet-vim
 
@@ -46,14 +50,21 @@ VimでEmmetを使えるようにするプラグイン。`<C-Y><C-,>`でタグに
 
 [Emmet-vim](https://github.com/mattn/emmet-vim)
 
-## tcomment_vim
+## コメント系
 
-ビジュアルモードで複数行選択した後`gc`とコマンドを打つことでコメントがトグルされる。（コメントアウト←→通常の切り替え）
-また、ノーマルモードで`gcc`と入力することで、カーソル行がコメントアウトされる。
+neovimでは[ts-comments.nvim](https://github.com/folke/ts-comments.nvim)を、vimでは[vim-commentary](https://github.com/tpope/vim-commentary)を使用
 
-## easy-motion
+`gc` - ビジュアルモードで複数行選択した後に入力したら選択行をコメントにする（コメントアウト←→通常の切り替え）
+`gcc` - カーソル行のコメントを切り替え
+`gcap` - パラグラフをまとめてコメント（空白行で区切られた範囲）
+`gcu` - 選択行のコメントを外す（vim-commantaryのみ？）
 
-neovimではflash.nvimが使われるので、ショートカットをそちらに合わせてsにしている。
+## カーソル移動系
+
+neovimでは[flash.nvim](https://github.com/folke/flash.nvim)、vimでは[easymotion](https://github.com/easymotion/vim-easymotion)を使用
+
+`s`で画面内の文字列を入力してジャンプする
+
 
 # それぞれの設定について
 
