@@ -24,3 +24,10 @@ endif
 " カーソル移動
 noremap <S-h> ^
 noremap <S-l> $
+
+" rとC-rの動作を入れ替える (rでRedo、C-rで1文字置換)
+nnoremap r <C-r>
+nnoremap <C-r> r
+" ビジュアルモードでの一括置換もC-rに割り当てる（基本的に暴発しにくくする）
+vnoremap r <Nop>
+vnoremap <C-r> r
