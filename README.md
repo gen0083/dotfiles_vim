@@ -70,6 +70,18 @@ neovimでは[flash.nvim](https://github.com/folke/flash.nvim)、vimでは[easymo
 `S` - Treesitterによる構文解析で範囲選択を簡単にできる（選択範囲の拡大のような挙動を一発で選択できる）
 オペレータ待機中に`r` - カーソル位置はそのままで画面内の別の場所にある文字列を選択とかできる（`y`でヤンクモードにはいり、`r`でflash.jumpを行いテキストを選択（テキストの位置を指定して`iw`とかで選択）、そのあと`p`でペーストしたりできる）
 
+## マルチカーソル
+
+neovim, vim - [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
+ideavim - [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+
+visual-multiは`:help visual-multi`でヘルプが確認できる。
+設定項目が基本的に異なるのである程度の設定を共通化するのみに留める
+
+`<C-n>` - カーソル位置の文字列にカーソルを追加する（visual-multiモードに入る）
+`<C-Down>`/`<C-Up>` - カーソル行の上（下）にカーソルを追加
+
+
 # それぞれの設定について
 
 - _vimrc: vim(MacVim)用　一番ノーマル

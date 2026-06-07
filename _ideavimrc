@@ -6,6 +6,25 @@ source ~/.vim/config/plugin_surround.vim
 Plug 'easymotion/vim-easymotion'
 source ~/.vim/config/plugin_easymotion.vim
 Plug 'tpope/vim-commentary'
+Plug 'terryma/vim-multiple-cursors'
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences
+
+" 縦方向（上下）にマルチカーソルを追加 (IntelliJのネイティブアクションを利用)
+nmap <C-Down> <Action>(EditorCloneCaretBelow)
+xmap <C-Down> <Action>(EditorCloneCaretBelow)
+nmap <C-Up> <Action>(EditorCloneCaretAbove)
+xmap <C-Up> <Action>(EditorCloneCaretAbove)
 
 " 共通設定の読み込み
 source ~/.vim/config/set_common.vim

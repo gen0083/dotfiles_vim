@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   " surround.vim
   Plug 'tpope/vim-surround'
+  " マルチカーソル
+  Plug 'mg979/vim-visual-multi'
   " emmet-vim
   Plug 'mattn/emmet-vim'
   " Syntax-plugins
