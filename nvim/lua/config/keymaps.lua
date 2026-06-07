@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- neovimでデフォルトでnoremapでkeymapを設定するため、特に指定しなければvimでいうところのnoremapになる
+-- mapを設定したい場合は, keymap({"n"}, "a", "b", { remap = true })のように指定する
+
 local keymap = vim.keymap.set
 local opts = { silent = true }
 
@@ -31,10 +34,9 @@ end
 keymap({ "n", "v", "o" }, "<S-h>", "^", opts)
 keymap({ "n", "v", "o" }, "<S-l>", "$", opts)
 
--- ウィンドウ移動
-if not vim.g.vscode then
-  keymap({ "n", "v", "o" }, "<C-j>", "<C-w>j", opts)
-  keymap({ "n", "v", "o" }, "<C-h>", "<C-w>h", opts)
-  keymap({ "n", "v", "o" }, "<C-k>", "<C-w>k", opts)
-  keymap({ "n", "v", "o" }, "<C-l>", "<C-w>l", opts)
-end
+-- rとC-rの動作を入れ替える (rでRedo、C-rで1文字置換)
+keymap("n", "r", "<C-r>", opts)
+keymap("n", "<C-r>", "r", opts)
+-- ビジュアルモードでの一括置換もC-rに割り当てる（基本的に暴発しにくくする）
+keymap("v", "r", "<Nop>", opts)
+keymap("v", "<C-r>", "r", opts)
