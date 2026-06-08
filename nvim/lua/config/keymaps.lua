@@ -40,3 +40,19 @@ keymap("n", "<C-r>", "r", opts)
 -- ビジュアルモードでの一括置換もC-rに割り当てる（基本的に暴発しにくくする）
 keymap("v", "r", "<Nop>", opts)
 keymap("v", "<C-r>", "r", opts)
+
+if vim.g.vscode then
+  -- VSCode環境ではvim-visual-multiが動かないため、VSCodeネイティブのマルチカーソル機能に横流しする
+  vim.keymap.set({ "n", "x" }, "<C-Down>", function()
+    vim.fn.VSCodeNotify("editor.action.insertCursorBelow")
+  end, { desc = "Add Cursor Down (VSCode)" })
+  
+  vim.keymap.set({ "n", "x" }, "<C-Up>", function()
+    vim.fn.VSCodeNotify("editor.action.insertCursorAbove")
+  end, { desc = "Add Cursor Up (VSCode)" })
+
+else
+  -- ターミナル上のNeovimでは vim-visual-multi の機能に割り当てる
+  vim.keymap.set({ "n", "x" }, "<C-Down>", "<Plug>(VM-Add-Cursor-Down)", { desc = "Add Cursor Down" })
+  vim.keymap.set({ "n", "x" }, "<C-Up>", "<Plug>(VM-Add-Cursor-Up)", { desc = "Add Cursor Up" })
+end
