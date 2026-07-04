@@ -21,3 +21,11 @@ if vim.fn.has("mac") == 1 then
     end,
   })
 end
+
+-- Markdownファイルを開いたときにスペルチェックを無効にする（Markdownファイルで日本語に波線が入ってしまうため）
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "markdown_inline" },
+  callback = function()
+    vim.opt_local.spell = false
+  end,
+})

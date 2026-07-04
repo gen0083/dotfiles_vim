@@ -18,3 +18,5 @@ opt.swapfile = false
 opt.whichwrap:append("<,>,[,]")
 -- タブと行の続きを可視化する (LazyVimのリスト表示設定に上書き/追加)
 opt.listchars:append({ tab = "> " })
+
+opt.spell = false
