@@ -37,10 +37,3 @@ noremap <C-]> <esc>
 " https://github.com/JetBrains/ideavim/wiki/set-commands
 " リファクタモード時にvimモードをキープさせる(デフォルトだとVisualModeになってしまう)
 set idearefactormode=keep
-
-" IdeaVimでもIMEオフ(needs IdeaVimExtension)
-augroup ImeAutoOff
-  autocmd!
-  " 指定したイベント時に英数モードにする(ただしInsertMode時は動かさない)
-  autocmd InsertLeave,FocusGained * !macism com.apple.keylayout.ABC
-augroup END
